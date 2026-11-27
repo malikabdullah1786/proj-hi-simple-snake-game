@@ -1,0 +1,5 @@
+com\example\snake\controller\ScoreController.class
+com\example\snake\SnakeApplication.class
+com\example\snake\model\HighScore.class
+com\example\snake\service\ScoreService.class
+com\example\snake\repository\ScoreRepository.class
