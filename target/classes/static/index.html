@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Snake - Spring Boot Edition</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>SNAKE ARCADE</h1>
+            <div class="score-board">
+                <div class="score-item">SCORE: <span id="current-score">0</span></div>
+                <div class="score-item">HIGH SCORE: <span id="high-score">0</span></div>
+            </div>
+        </header>
+
+        <div class="game-board-wrapper">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            
+            <!-- Overlay Screen (Start / Pause / Game Over) -->
+            <div id="game-overlay" class="overlay">
+                <div id="overlay-content" class="overlay-content">
+                    <h2>RETRO SNAKE</h2>
+                    <p>Use Arrow Keys or WASD to navigate.</p>
+                    <button id="start-btn" class="arcade-btn">PRESS START</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-hint">
+            <p>Controls: ⬅️ ➡️ ⬆️ downarrow; or W A S D | Space to Pause</p>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <section class="leaderboard-section">
+            <h3>HALL OF FAME (TOP 10)</h3>
+            <div class="leaderboard-container">
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>RANK</th>
+                            <th>PLAYER</th>
+                            <th>SCORE</th>
+                            <th>DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <tr>
+                            <td colspan="4" class="loading-scores">Loading high scores...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Game Over Modal for Score Submission -->
+    <div id="score-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>NEW HIGH SCORE!</h2>
+            <p>You scored <span id="final-score-val">0</span> points!</p>
+            <form id="score-form">
+                <label for="player-initials">ENTER 3 INITIALS:</label>
+                <input type="text" id="player-initials" maxlength="3" pattern="[A-Za-z0-9]{3}" required placeholder="ABC" autocomplete="off" />
+                <button type="submit" class="arcade-btn">SUBMIT SCORE</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/game.js"></script>
+</body>
+</html>
